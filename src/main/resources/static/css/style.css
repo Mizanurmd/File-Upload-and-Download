@@ -1,0 +1,9 @@
+body{
+	background-color: teal;
+}
+.container{
+	text-align: center;
+}
+.card{
+	margin: 0 auto;
+}
