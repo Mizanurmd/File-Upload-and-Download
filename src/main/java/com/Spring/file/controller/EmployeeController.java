@@ -44,7 +44,7 @@ public class EmployeeController {
 		employee.setSize(file.getSize());
 		empService.createEmployee(employee);
 		
-		m.addAttribute("Success", "File upload Successfully!!!!");
+		m.addAttribute("success", "File upload Successfully!!!!");
 		return "/view/index.html";
 	}
 	

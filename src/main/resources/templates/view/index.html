@@ -11,6 +11,12 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 
+<link
+	href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+	rel="stylesheet">
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+	rel="stylesheet">
 <link th:href="@{/css/style.css}" rel="stylesheet">
 
 <body>
@@ -18,7 +24,7 @@
 	<div class="container">
 		<h1>Spring boot file upload & download</h1>
 	</div>
-	<div class="card" style="width: 30rem;" align="center">
+	<div class="card1" style="width: 30rem;" align="center">
 		<div class="card-body" align="center">
 			<h2 class="card title">File upload</h2>
 			<h6 class="text-success">[[${success}]]</h6>
@@ -26,7 +32,8 @@
 				<form th:action="@{/upload}" method="post"
 					enctype="multipart/form-data">
 					<input class="form-control" name="file" type="file" id="formFile" />
-					</br> <input type="submit" value="Upload" class="btn btn-primary">
+					</br> <i class="icon-upload"></i> <input type="submit" value="Upload"
+						class="btn bg-red-500 btn-primary">
 
 				</form>
 
@@ -35,36 +42,40 @@
 		</div>
 	</div>
 
-	<div class="container mt-5">
+
+	<!-- test -->
+	
+
+
+	 <div class="container mt-3">
 		<div class="card">
-			<div class="card-body">
-				<div class="row">
-					<th: block th:each="emlist:${employeeList}">
-						<div class="col-sm-3">
-							<div>
-								<a th:href="@{'/download?id=' + ${emlist.id}}">
-							<i class="fa fa-downlaod"></i> 
+			<div class="flex">
+				 <div class="flex align-center p-2">
+					<th: block th:each="emlist:${employeeList}" class="flex align-center gap-3 w-full">
+						<div class="flex align-center flex-col">
+							<div >
+								<a th:href="@{'/download?id=' + ${emlist.id}}"> 
+								<i class="icon-download"></i>Download
 								</a>
 
 							</div>
-							<div>
-							<img th:src="@{'/image?id='+ ${emlist.id}}" width="100px" height="50px">
+							<div class="gallery">
+								<img th:src="@{'/image?id='+ ${emlist.id}}" width="100px"
+									height="100px">
 							</div>
-							
-							<div> [[${emlist.profilePicture}]]</div>
-							<div> [[${emlist.size}]]</div>
+
+							 <div>[[${emlist.profilePicture}]]</div>
+							<div>[[${emlist.size}]]</div> 
 
 						</div>
-				</div>
+				</div> 
 
-			</div>
-
-		</div>
-
-	</div>
+</div></div></div>
 
 
 	<!-- //////////////// javaScript ///////////////////// -->
+
+	<script src="https://cdn.tailwindcss.com"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
 		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
